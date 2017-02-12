@@ -9,7 +9,7 @@ var text = 10;
 alert(text);
 *******************
 ***PROMPT***
-выдает окошко с и позволяет получить от пользователя какой-либо текст.
+выдает окошко и позволяет получить от пользователя какой-либо текст.
 var name = prompt('Ваше имя?');
 alert('Ваше имя: '+name);
 *******************
@@ -20,3 +20,23 @@ alert('Ваше имя: '+name);
 var ok = confirm('Вам уже есть 18 лет?');
 alert(ok);
 *******************
+var tc = prompt('Enter the tc grade:');
+var tf = 9*tc/5 + 32;
+alert('tf grade is: ' + tf);
+******************* afisarea rezultatului **********************
+document.write
+write  - afiseaza in rand
+writeln - afiseaza in coloana
+
+******************** length **********************
+var arr = ['Петя', 'Вася', 'Дима', 'Олег', 'Вова'];
+document.write(arr.length);
+//5
+
+var arr = ['Петя', 'Вася', 'Дима', 'Олег', 'Вова'];
+arr.length = 2;
+document.write(arr);
+// Петя, Вася
+
+********************* typeof *********************
+alert(typeof variabila1)  //afiseaza tipul variabilei (number, string, boolean, null, undefine, object)
