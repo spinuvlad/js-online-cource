@@ -236,7 +236,39 @@ for (var i = 1; i <= 9; i++)
 	str += '<br>';
 }
 document.write(str);
-
+---
+for (var i = 1; i < 10; i++) {
+  for (var j = 1; j <= i; j++) {
+    document.write(i); 
+  }
+  document.write('<br />'); 
+}
+----------------------------------
+1
+12
+123
+1234
+12345
+123456
+for (var i = 1; i < 10; i++) {
+  for (var j = 1; j <= i; j++) {
+    document.write(j); 
+  }
+  document.write('<br />'); 
+}
+---------
+9
+9 8
+9 8 7
+9 8 7 6
+9 8 7 6 5
+9 8 7 6 5 4 
+for (var i = 9; i > 0; i--) {
+  for (var j = 9; j >= i; j--) {
+    document.write(j + " ");
+  }
+  document.write('<br />');
+}
 ---------------------------------------------
 18. Нарисуйте пирамиду с помощью document.write, как показано на рисунке, 
 воспользовавшись циклом for или while:
@@ -259,8 +291,14 @@ while (i < 20){
     str = str + 'xx';
     document.write(str + '<br>');
 }
-
-
+--------------------------------------
+va afisa tabla inmultirii:
+for (var i = 1; i<= 10; i++) { 
+  for (var j = 1; j <= 10; j++) { // pana nu se termina acest ciclu nu intra in cel de la inceput
+    document.write(i + '*' + j + ' = ' + i * j + '<br />');
+  }
+  document.write('<br />');
+}
 
 
 

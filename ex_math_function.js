@@ -191,6 +191,28 @@ for (i = 0; i < num; i++){
   fact = fact * arr[i];
 }
 document.write(fact);
+------
+var result = 1;
+for (var i = 1; i <= 4; i++){
+  result = result * i;
+  /*
+  1 = 1*1
+  1 = 1*2
+  2 = 2*3
+  6 = 6*4
+  */
+}
+document.write(result + '<br>');
 --------------------------------------
 15. Напишите скрипт, который проверяет, является ли данное число простым 
 (простое число - это то, которое делится только на 1 и на само себя).
+
+nextPrime:
+for (var i = 2; i < 10; i++) {
+
+for (var j = 2; j < i; j++) {
+if (i % j == 0) continue nextPrime;
+}
+document.write( i + '<br>'); // простое            
+}
+// 2 3 5 7 ... 

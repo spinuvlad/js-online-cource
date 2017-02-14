@@ -102,3 +102,63 @@ for (var i = 0; i < arr.length; i++)
 		alert(arr[i]);
 	}
 }
+
+-----------------------------
+outer:
+for (var i = 0; i < 4; i++) {
+  for (var j = 0; j < 4; j++) {
+    if (i == 2) { // opreste cicluc cand i = 2
+      break outer;
+    }
+    document.write(i, j + '<br>');  
+  }
+}
+// 00 01 02 03 10 11 12 13
+------------------------------- continue --------------------------------
+прерывает не весь цикл, а только текущее выполнение его тела, как будто оно закончилось.
+Её используют, если понятно, что на текущем повторе цикла делать больше нечего.
+цикл ниже использует continue, чтобы не выводить чётные значения:
+for (var i = 0; i < 10; i++) {
+
+  if (i % 2 == 0) continue; //coclul continua daca nu se indeplineste conditia "if"
+
+  alert(i);
+}
+// 1 3 5 7 9 
+----------------
+outer:
+for (var i = 0; i < 4; i++) {
+  for (var j = 0; j <2; j++) {
+    if (i == 2) { // indeplineste ciclul cu exceptia i = 2
+      continue outer;
+    }
+    document.write(i, j + '<br>');
+  }
+}
+//00 01 10 11 30 31
+-----------------------------------------------------------
+внутри цикла по i находится цикл по j, и при выполнении некоторого условия мы бы хотели выйти из обоих циклов сразу:
+В коде для этого использована метка: outer:
+outer: for (var i = 0; i < 3; i++) {
+
+  for (var j = 0; j < 3; j++) {
+
+    var input = prompt('Значение в координатах '+i+','+j, '');
+
+    // если отмена ввода или пустая строка -
+    // завершить оба цикла
+    if (!input) break outer; // (*)
+
+  }
+}
+alert('Готово!');
+------------------------- for in for -------------------------
+va afisa tabla inmultirii:
+for (var i = 1; i<= 10; i++) { 
+  for (var j = 1; j <= 10; j++) { // pana nu se termina acest ciclu nu intra in cel de la inceput
+    document.write(i + '*' + j + ' = ' + i * j + '<br />');
+  }
+  document.write('<br />');
+}
+---------------------------------------
+// http://true-coder.ru/js-dlya-nachinayushhix/js-dlya-nachinayushhix-urok-1-11-cikly.html
