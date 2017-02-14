@@ -22,7 +22,7 @@ document.write('Исходная строка: ' + str);
 toLowerCase производит преобразование строки в нижний регистр
 var str = "JavaScript";
 document.write(str.toLowerCase());
-javascript
+//javascript
 
 ------------------------- substr --------------------------
 substr возвращает подстроку от строки (исходная строка при этом не изменяется):
