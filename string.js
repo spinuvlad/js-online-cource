@@ -128,3 +128,41 @@ document.write(newStr);
 arr = 'a,b,c'.split(',');
 document.write(arr);
 // a,b,c
+
+var str = 'я учу javascript!';
+var arr = str.split(' '); // obligatoriu spatiu intre ''
+document.write(arr);
+//я,учу,javascript!
+
+var str = 'я учу javascript!';
+var arr = str.split(''); // fara spatiu intre ''
+document.write(arr);
+//я, ,у,ч,у, ,j,a,v,a,s,c,r,i,p,t,!
+
+var str = '2025-12-31';
+    newStr = str.replace(/-/g, ' ').split(' '); // sau newStr = str.split('-');
+var date = [newStr[2] + '.' + newStr[1] + '.' + newStr[0]];
+document.write(date);
+//31.12.2025
+
+var date = '2025-12-31';
+var arr = date.split('-');
+var newDate = arr[2] + '/' + arr[1] + '/' + arr[0]
+document.write(newDate);
+//31/12/2025
+----------------------------- join ---------------------------
+join объединяет элементы массива в строку с указанным разделителем 
+(он будет вставлен между элементами массива).
+Разделитель задается параметром функции и не является обязательным. 
+Если он не задан - по умолчанию в качестве разделителя возьмется запятая. 
+Если вы хотите слить элементы массива без разделителя - укажите его как пустую строку ''.
+
+var arr = ['JS', 'HTML', 'PHP'];
+var str = arr.join('-');
+document.write(str);
+//JS-HTML-PHP
+
+var array = ['JS', 'HTML', 'PHP'];
+var str = arr.join();
+document.write(str);
+//JS,HTML,PHP

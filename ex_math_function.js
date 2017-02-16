@@ -184,14 +184,6 @@ document.write('Media sumei elementelor masivului: ' + result);
 14. Напишите скрипт, который будет находить факториал числа. 
 Факториал (обозначается !) - это произведение всех целых чисел, меньше данного, 
 и его самого. Например, 4! = 1*2*3*4.
-var arr = [];
-var num = 4, fact = 1;
-for (i = 0; i < num; i++){
-  arr[i] = i + 1;
-  fact = fact * arr[i];
-}
-document.write(fact);
-------
 var result = 1;
 for (var i = 1; i <= 4; i++){
   result = result * i;
