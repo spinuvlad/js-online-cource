@@ -582,3 +582,158 @@ function ucLast(str)
 document.write(ucLast('cделайте заглавным последний символ каждого слова этой строки.'));
 //cделайтЕ заглавныМ последниЙ симвоЛ каждогО словА этоЙ строки.
 
+var str = 'cделайте заглавным последний символ каждого слова этой строки.';
+var newStr = '';
+function ucLast(s)
+{
+  return s.slice(0, -1) + s.slice(-1).toUpperCase();
+}
+var arr = str.split(' ');
+for (var i = 0; i < arr.length; i++)
+{
+  newStr += ucLast(arr[i]);
+  newStr += ' '; 
+}
+document.write(newStr);
+//cделайтЕ заглавныМ последниЙ симвоЛ каждогО словА этоЙ строки.
+---------------------------------------------------------------------------------- ***
+38. Дана строка. Сделайте заглавным каждый четный символ этой строки.
+
+var str = 'cделайте заглавным каждый четный символ этой строки.';
+for(var i = 0; i < str.length; i+=2) 
+{ 
+  str = str.slice(0, i) + str.substr(i, 1).toUpperCase() + str.substr(i+1); 
+} 
+document.write(str);
+//CдЕлАйТе зАгЛаВнЫм кАжДыЙ ЧеТнЫй сИмВоЛ ЭтОй сТрОкИ.
+---------------------------------------------------------------------------------- ***
+39. Дана строка с дефисами, например '12-345-67-89-10'. 
+Замените первые 3 дефиса на !.
+
+var str = '12-345-67-89-10'; 
+var counter = 0; 
+for(var i = 0; i < str.length; i++) 
+{ 
+  if(counter < 3) 
+  { 
+    if(str[i] == '-') 
+    { 
+      str = str.replace('-', '!'); 
+      counter++; 
+    } 
+  } 
+} 
+document.write(str);
+//12!345!67!89-10
+---------------------------------------------------------------------------------- ***
+40. Дана строка с дефисами, например '12-345-67-89-10'. 
+Замените первые 3 дефиса с конца на !.
+
+var str = '12-345-67-89-10'; 
+var counter = 0; 
+for(var i = str.length-1; i >= 0; i--) 
+{ 
+  if(counter < 3) 
+  { 
+    if(str[i] == '-') 
+    { 
+      str = str.substr(0,i) + '!' + str.substr(i + 1); 
+      counter++; 
+    } 
+  } 
+} 
+document.write(str); 
+//12-345!67!89!10
+-----------------------------------------------------------------------------------
+41. Дана строка вида 'var_text_hello'. 
+Сделайте из него текст 'varTextHello'.
+
+var str = 'var_text_hello';
+var arr = str.split('_');
+for (var i = 1; i < arr.length; i++)
+{
+  arr[i] = arr[i].slice(0, 1).toUpperCase() + arr[i].slice(1);
+  
+}
+document.write(arr.join(''));
+//varTextHello
+------------------------------------------------------------------------------------ ***
+42. Дана строка с пробелами по краям. Реализуйте функцию ltrim, которая будет убирать пробелы слева. 
+Реализуйте функцию rtrim, которая будет убирать пробелы справа. Реализуйте функцию trim, 
+которая будет убирать пробелы по концам строки.
+
+var str = '------Дана строка с пробелами по краям---';
+function ltrim()
+{
+  for (var i = 0; i < str.length; i++)
+  {
+    if (str[i] != '-')
+    {
+      str = str.substr(i);
+      break;
+    }
+  }
+  document.write(str + '<br>');
+}
+//ltrim(); 
+//Дана строка с пробелами по краям---
+
+function rtrim()
+{
+  for (var i = str.length-1; i > 0; i--)
+  {
+    if (str[i] != '-')
+    {
+      str = str.slice(0, i);
+      break;
+    }
+  }
+  document.write(str + '<br>');
+}
+//rtrim(); 
+//------Дана строка с пробелами по края
+
+function trim()
+{
+  for (var i = 0; i < str.length; i++)
+  {
+    if (str[i] != '-')
+    {
+      str = str.substr(i);
+      break;
+    }
+  }
+  
+  for (var i = str.length-1; i > 0; i--)
+  {
+    if (str[i] != '-')
+    {
+      str = str.slice(0, i);
+      break;
+    }
+  }
+  document.write(str + '<br>');
+}
+trim();
+//Дана строка с пробелами по края
+--------------------------------------------------------------------
+43. Сделайте функцию strReplace, которая будет осуществлять поиск и замену. 
+Первым параметром функция должна принимать массив 'что меняем', а вторым параметром массив 'на что меняем'. 
+Третьим параметром строку, в которой меняем. Функция должна искать в строке элементы первого 
+массива и менять их на соответствующие элементы второго массива.
+
+var str = 'я учу xml, css и ruby'; 
+var arr1 = ['xml', 'ruby']; 
+var arr2 = ['html', 'javascript']; 
+function strReplace(arr1, arr2, str) { 
+for(var i = 0; i < arr1.length; i++) { 
+var index = str.indexOf(arr1[i]); 
+if(index + 1) { 
+str = str.slice(0, index) + arr2[i] + str.substr(index + arr1[i].length); 
+} 
+} 
+return str; 
+} 
+document.write('Исходная строка: "' + str + '".<br>'); 
+document.write('Меняем элементы из массива: [' + arr1 + '] на элементы из массива: [' + arr2 + '].<br>'); 
+document.write('Результат: "' + strReplace(arr1, arr2, str) + '".<br>');

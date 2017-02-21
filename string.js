@@ -114,7 +114,7 @@ document.write(foldStr.split('/')[2]);
 //folder2
 
 var foldStr = '/folder1/folder2/folder3/folder4/'; 
-document.write(foldStr.split('/')[foldStr.split('/').length - 3]); //penultimul de la urma
+document.write(foldStr.split('/')[foldStr.split('/').length - 3]); //penultimul
 //folder3
 ----------------------------- replace ---------------------------
 Первым параметром принимается подстрока, которую заменяем, а вторым - подстрока, на которую заменяем:
