@@ -152,7 +152,7 @@ document.write(sum);
 var arr = [12, 4, -3, 11, 5, 7, 10, -12, 5, 9];
 var newArr = [];
 var sum = 0;
-for (i = 0; i < arr.length; i++)
+for (var i = 0; i < arr.length; i++)
 {
   newArr[i] = arr[i]*arr[i];  // or -  newArr.push(arr[i]*arr[i]);
   sum += newArr[i];
@@ -165,7 +165,7 @@ document.write(sum);
 
 var arr = [12, 4, -3, 11, 5, 7, 10, -12, 5, 9];
 var sum = 0;
-for (i = 0; i < arr.length; i++)
+for (var i = 0; i < arr.length; i++)
 {
   sum += arr[i];
 }
@@ -183,7 +183,7 @@ xxxxx
 var str = '';
 function strX(num)
 {
-  for (i = 0; i <= num; i++)
+  for (var i = 0; i <= num; i++)
   {
     str += 'x';
     document.write(str + '<br>');
@@ -200,14 +200,14 @@ strX(20);
 var str = '';
 function strNum(num)
 {
-  for (i = 1; i <= num; i++)
+  for (var i = 1; i <= num; i++)
   {
     str += i;
     document.write(str + '<br>');  
   }
 }
 strNum(9);
-------------------------------------------------------------
+------------------------------------------------------------ ***
 15. Нарисуйте пирамиду с помощью document.write, как показано на рисунке, 
 только у вашей пирамиды должно быть 9 рядов, а не 5:
 11111 
@@ -216,5 +216,369 @@ strNum(9);
 44444 
 55555 
 
+function strNum(num)
+{
+  for(var i = 1; i <= num; i++) 
+  { 
+    for(var j = 0; j < 5; j++) 
+    { 
+      document.write('' + i); 
+    } 
+    document.write('<br>'); 
+  }
+}
+strNum(9);
+------------------------------------------------------------- ***
+16. Нарисуйте пирамиду с помощью document.write, как показано на рисунке, 
+только у вашей пирамиды должно быть 9 рядов, а не 5:
+11111 
+1111122222 
+111112222233333 
+11111222223333344444 
+1111122222333334444455555 
 
+function strNum(num)
+{
+  var str = ''; 
+  for(var i = 1; i <= num; i++) 
+  { 
+    for(var j = 0; j < 5; j++) 
+    { 
+      str += '' + i; 
+    } 
+    document.write(str + "<br>"); 
+  }
+}
+strNum(9);
+------------------------------------------------------------------
+17. Нарисуйте пирамиду с помощью document.write, как показано на рисунке, 
+только у вашей пирамиды должно быть 9 рядов, а не 5:
+1 
+22 
+333 
+4444 
+55555 
+
+function strNum(num){
+for (var i = 1; i <= num; i++)
+{
+  for (var j = 0; j < i; j++)
+  {
+    document.write('' + i);
+  }
+  document.write('<br>'); 
+}
+}
+strNum(9);
+-------------------------------------------------------------------
+18. Сделайте с помощью цикла строку '123456789'.
+
+var str = '';
+for ( var i = 1; i <= 9; i++)
+{
+  str += i;
+}
+document.write(str); 
+--------------------------------------------------------------------
+19. Сделайте с помощью цикла строку '122333444455555', 
+только ваша строка должна заканчиваться на 9.
+
+var str = '';
+for (var i = 1; i <= 9; i++)
+{
+  for (var j = 0; j < i; j++)
+  {
+    str += i;
+  }
+}
+document.write(str);
+---------------------------------------------------------------------
+20. Нарисуйте ёлочку с помощью document.write, как показано на рисунке, 
+только ваша ёлочка должна быть до девятки:
+1
+11
+111
+1111
+11111
+2
+22
+222
+2222
+22222
+
+str = '';
+for (var i = 1; i <= 9; i++)
+{
+  for (var j = 0; j < 5; j++)
+  {
+    str += i;
+    document.write(str + '<br>');
+  }
+  str = '';
+}
+----------------------------------------------------------------------
+21. Заполните массив следующим образом: в первый элемент запишите 'x', 
+во второй 'xx', в третий 'xxx' и так далее.
+
+var arr = [];
+var str = '';
+for (var i = 0; i < 9; i++)
+{
+  str += 'x';
+  arr[i] = str;
+  document.write(arr[i] + '<br>'); 
+}
+---------------------------------------------------------------------- ***
+22. Заполните массив следующим образом: в первый элемент запишите '1', 
+во второй '22', в третий '333' и так далее.
+
+var arr = []; 
+for(var i = 1; i < 10; i++) 
+{ 
+  str = ''; 
+  for(var j = 0; j < i; j++) 
+  { 
+    str += i; 
+  } 
+  arr.push(str); 	//arr[i] = str; 
+} 
+document.write(arr);
+------------------------------------------------------------------------ ***
+23. Выведите на экран первые 20 штук чисел Фибоначчи.
+каждое последующее число равно сумме двух предыдущих чисел:
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584
+
+var arr = [0, 1];
+for (i = 0; i < 20; i++)
+{
+  arr[i+2] = arr[i] + arr[i+1];	//arr.push(arr[i] + arr[i+1]);
+}
+document.write(arr);
+--------------------------------------------------------------------------
+24. Сделайте функцию arrayFill, которая будет заполнять массив заданными значениями. 
+Первым параметром функция принимает значение, которым заполнять массив, 
+а вторым - сколько элементов должно быть в массиве. 
+Пример: arrayFill('x', 5) сделает массив ['x', 'x', 'x', 'x', 'x'].
+
+function arrayFill(str, num)
+{
+  arr = [];
+  for (i = 0; i < num; i++)
+  {
+    arr[i] = str;
+  }
+  document.write(arr);
+}
+arrayFill('x', 5); 
+//x,x,x,x,x
+-----------------------------------------------------------------------------
+25. Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, 
+чтобы в сумме получилось больше 10-ти.
+
+var arr = [2, -3, 1, 5, -2, 8, 4, -1, 9, 0];
+var sum = 0;
+for (i = 0; i < arr.length; i++)
+{
+  sum += arr[i];
+  if (sum > 10)
+  {
+    break;
+  }
+}
+document.write(i+1);
+//6
+------------------------------------------------------------------------------
+26. Дан массив с числами. Узнайте сколько элементов с конца массива надо сложить, 
+чтобы в сумме получилось больше 10-ти.
+
+var arr = [2, -3, 1, 5, -2, 8, 4, -1, 9, 0];
+var sum = 0;
+var newArr = arr.reverse();
+for (i = 0; i < arr.length; i++)
+{
+  sum += newArr[i];
+  if (sum > 10)
+  {
+    break;
+  }
+}
+document.write(i+1);
+//4
+
+var arr = [2, -3, 1, 5, -2, 8, 2, -1, 9, 0];
+var counter = 1; 
+var sum = 0; 
+for(var i = arr.length - 2; i >= 0; i--) 
+{ 
+  sum += arr[i]; 
+  counter++; 
+  if(sum > 10) 
+  { 
+    break; 
+  } 
+} 
+document.write(counter);
+//5
+-------------------------------------------------------------------------------
+27. Дана строка. Сделайте заглавным первый символ этой строки не используя цикл. 
+Найдите два решения.
+
+var str = 'hello!';
+document.write(str[0].toUpperCase() + str.slice(1));
+//Hello!
+
+var str = 'hello!';
+var newStr = str.replace(str[0], str[0].toUpperCase());
+document.write(newStr);
+//Hello!
+--------------------------------------------------------------------------------
+28. Дана строка. Сделайте заглавным последний символ этой строки не используя цикл. 
+Найдите два решения.
+
+var str = 'последний символ';
+document.write(str.slice(0, -1) + str.substr(-1).toUpperCase());
+//последний симвоЛ
+
+var str = 'последний символ';
+var lastSym = str[str.length-1].toUpperCase();
+var newStr = str.substring(0, str.length-1);
+document.write(newStr + lastSym);
+//последний симвоЛ
+---------------------------------------------------------------------------------
+29. Дана строка, например, '123456'. 
+Переверните эту строку (сделайте из нее '654321') не используя цикл.
+
+var str = '123456';
+var arr = str.split('');
+arr.reverse();
+document.write(arr.join(''));
+//654321
+---------------------------------------------------------------------------------
+30. Дано число, например, 3751. 
+Отсортируйте цифры в нем (сделайте из него 1357) не используя цикл.
+
+var num = 3751;
+var arr = String(num).split('');
+var result = arr.splice(-1, 1).concat(arr);
+document.write(result.join(''));
+//1375
+---------------------------------------------------------------------------------
+31. Проверьте, что строка начинается на http://
+
+var str = 'http://document.write.com';
+var contrStr = str.substr(0, 7);
+if (contrStr == 'http://')
+{
+  document.write(str);
+}
+else
+{
+  document.write('Enter corect url adress');
+}
+----------------------------------------------------------------------------------
+32. Проверьте, что строка заканчивается на .html.
+
+var str = 'document.write.html';
+var contrStr = str.substr(-5, 5);
+if (contrStr == '.html')
+{
+  document.write(str);
+}
+else
+{
+  document.write('Enter corect url adress');
+}
+-----------------------------------------------------------------------------------
+33. Дана строка вида '/folder1/folder2/folder3/folder4/'. 
+Строки между слешеми могут быть любыми. 
+Получите содержимое второго блока (в нашем случае 'folder2').
+
+var foldStr = '/folder1/folder2/folder3/folder4/';
+var pos1 = foldStr.indexOf('/', 1);
+var pos2 = foldStr.indexOf('/', pos1+1);
+
+document.write(foldStr.slice(pos1+1, pos2));
+//folder2
+
+var foldStr = '/folder1/folder2/folder3/folder4/';
+document.write('<b>Решение №2:</b><br>');
+
+document.write('Содержимое второго блока: "' + foldStr.split('/')[2] + '".<br>');
+//folder2
+-----------------------------------------------------------------------------------
+34. Дана строка вида '/folder1/folder2/folder3/folder4/'. Строки между слешеми могут быть любыми. 
+Получите содержимое второго блока с конца (в нашем случае 'folder3').
+
+var foldStr = '/folder1/folder2/folder3/folder4/'; 
+var pos1 = foldStr.lastIndexOf('/', foldStr.length-2);
+var pos2 = foldStr.lastIndexOf('/', pos1-1)
+document.write(foldStr.slice(pos2+1, pos1));
+//folder3
+
+var foldStr = '/folder1/folder2/folder3/folder4/'; 
+document.write(foldStr.split('/')[foldStr.split('/').length - 3]);
+//folder3
+----------------------------------------------------------------------------------- ***
+35. Дана строка вида '/folder1/folder2/folder3/folder4/'. Строки между слешеми могут быть любыми. 
+Удалите из нее блок с заданным номером. Найдите два решения, оба без цикла.
+
+var foldStr = '/folder1/folder2/folder3/folder4/'; 
+var num = 2;
+document.write(foldStr.split('/')[num]);
+//folder2
+
+var num = 2; 
+var foldStr = '/folder1/folder2/folder3/folder4/'; 
+var arr = foldStr.split('/'); 
+arr.splice(num, 1); //din masiv: 1 element de pe pozitia "num"
+document.write(arr.join('/'));
+//folder2
+-------------------------------------------------------------------------------------
+36. Дана строка. Сделайте заглавным первый символ каждого слова этой строки. 
+Для этого сделайте вспомогательную функцию ucfirst, которая будет получать строку, 
+делать первый символ этой строки заглавным и возвращать обратно строку с заглавной первой буквой.
+
+function ucFirst(str)
+{
+  var arr = str.split(' ');
+  for( var i = 0; i < arr.length; i++)
+  {
+    arr[i] = arr[i].slice(0, 1).toUpperCase() + arr[i].slice(1);
+  }
+  var newStr = arr.join(' ');
+  return newStr;
+} 
+document.write(ucFirst('cделайте заглавным первый символ каждого слова этой строки.'));
+//Cделайте Заглавным Первый Символ Каждого Слова Этой Строки.
+
+var str = 'cделайте заглавным первый символ каждого слова этой строки.'
+var newStr = '';
+function ucFirst(s) 
+{ 
+  return s.substr(0, 1).toUpperCase() + s.substr(1); 
+} 
+
+var arr = str.split(' '); 
+for(var i = 0; i < arr.length; i++) 
+{ 
+  newStr += ucFirst(arr[i]); 
+  newStr += ' '; 
+} 
+document.write(newStr);
+//Cделайте Заглавным Первый Символ Каждого Слова Этой Строки.
+------------------------------------------------------------------------------------ ***
+37. Дана строка. Сделайте заглавным последний символ каждого слова этой строки.
+
+function ucLast(str)
+{
+  var arr = str.split(' ');
+  for (var i = 0; i < arr.length; i++)
+  {
+    arr[i] = arr[i].slice(0, -1) + arr[i].slice(-1).toUpperCase();
+  }
+  var newStr = arr.join(' ')
+  return newStr;
+}
+document.write(ucLast('cделайте заглавным последний символ каждого слова этой строки.'));
+//cделайтЕ заглавныМ последниЙ симвоЛ каждогО словА этоЙ строки.
 

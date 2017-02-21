@@ -109,6 +109,13 @@ var str = "Б..Б..Б";
 document.write(str.lastIndexOf('Б', 5));
 //3
 
+var foldStr = '/folder1/folder2/folder3/folder4/';
+document.write(foldStr.split('/')[2]);
+//folder2
+
+var foldStr = '/folder1/folder2/folder3/folder4/'; 
+document.write(foldStr.split('/')[foldStr.split('/').length - 3]); //penultimul de la urma
+//folder3
 ----------------------------- replace ---------------------------
 Первым параметром принимается подстрока, которую заменяем, а вторым - подстрока, на которую заменяем:
 var str = 'Я учу PHP';
@@ -150,6 +157,18 @@ var arr = date.split('-');
 var newDate = arr[2] + '/' + arr[1] + '/' + arr[0]
 document.write(newDate);
 //31/12/2025
+
+var str = '/folder1/folder2/folder3/folder4/'; 
+var arr = str.split('/'); 
+//,folder1,folder2,folder3,folder4,
+
+var foldStr = '/folder1/folder2/folder3/folder4/';
+document.write(foldStr.split('/')[2]);
+//folder2
+
+var foldStr = '/folder1/folder2/folder3/folder4/'; 
+document.write(foldStr.split('/')[foldStr.split('/').length - 3]); //penultimul de la urma
+//folder3
 ----------------------------- join ---------------------------
 join объединяет элементы массива в строку с указанным разделителем 
 (он будет вставлен между элементами массива).
