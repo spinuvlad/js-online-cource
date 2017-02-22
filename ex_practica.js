@@ -716,7 +716,7 @@ function trim()
 }
 trim();
 //Дана строка с пробелами по края
---------------------------------------------------------------------
+-------------------------------------------------------------------- ***
 43. Сделайте функцию strReplace, которая будет осуществлять поиск и замену. 
 Первым параметром функция должна принимать массив 'что меняем', а вторым параметром массив 'на что меняем'. 
 Третьим параметром строку, в которой меняем. Функция должна искать в строке элементы первого 
@@ -725,15 +725,84 @@ trim();
 var str = 'я учу xml, css и ruby'; 
 var arr1 = ['xml', 'ruby']; 
 var arr2 = ['html', 'javascript']; 
-function strReplace(arr1, arr2, str) { 
-for(var i = 0; i < arr1.length; i++) { 
-var index = str.indexOf(arr1[i]); 
-if(index + 1) { 
-str = str.slice(0, index) + arr2[i] + str.substr(index + arr1[i].length); 
-} 
-} 
-return str; 
+function strReplace(arr1, arr2, str) 
+{ 
+	for(var i = 0; i < arr1.length; i++) 
+	{ 
+		var index = str.indexOf(arr1[i]); 
+		if(index + 1) 
+		{ 
+			str = str.slice(0, index) + arr2[i] + str.substr(index + arr1[i].length); 
+		} 
+	} 
+	return str; 
 } 
 document.write('Исходная строка: "' + str + '".<br>'); 
 document.write('Меняем элементы из массива: [' + arr1 + '] на элементы из массива: [' + arr2 + '].<br>'); 
 document.write('Результат: "' + strReplace(arr1, arr2, str) + '".<br>');
+
+var str = 'я учу xml css и ruby'; 
+var arrIn = ['xml', 'ruby']; 
+var arrOut = ['html', 'javascript'];
+var arrStr = str.split(' ');
+
+function strReplace(arrIn, arrOut, str)
+{
+  for (var i = 0; i < arrIn.length; i++)
+  {
+    for (var j = 0; j < arrStr.length; j++)
+    {
+      if (arrStr[j] == arrIn[i])
+      {
+        arrStr[j] = arrStr[j].replace(arrIn[i], arrOut[i]);
+      }
+    }
+  }
+  document.write(arrStr.join(' '));
+}
+strReplace(arrIn, arrOut, str);
+//
+--------------------------------------------------------------------------------- ???
+44. Сделайте функцию inArray, которая определяет, есть в массиве элемент с заданным текстом или нет. 
+Функция первым параметром должна принимать текст элемента, а вторым - массив, в котором делается поиск. 
+Функция должна возвращать true или false.
+
+ПОЧЕМУ ВАЗВТАЩЯЕТСЯ "false" ?????????????????????????????
+
+var str = 'Сделайте функцию inArray, которая определяет, есть в массиве элемент с заданным текстом или нет.';
+var arrCheck = ['есть'];
+var arrStr = str.split(' ');
+
+function inArray(arrCheck, str)
+{
+  for (i = 0; i < arrStr.length; i++)
+  {
+    if (arrCheck == arrStr[i])
+    {
+      return true;
+      break;
+    }
+    else
+    {
+      return false;
+    }
+  }
+}
+document.write(inArray(arrCheck, str));
+------------------------------------------------------------------------------------- ***
+45. Дана строка, например, '123456'. Сделайте из нее '214365'.
+
+var str = '123456';
+var newStr = '';
+for (var i = 0; i < str.length; i = i + 2) 
+{
+  newStr = newStr + str[i+1] + str[i]; 
+}
+document.write(newStr); 
+//214365
+------------------------------------------------------------------------------------- ??????
+46. Сделайте функцию, которая меняет местами ключи и значения в ассоциативном массиве (объекте).
+
+var obj = { 'key1': 'a', 'key2': 'b', 'key3': 'c', 'key4': 'd' };
+var newObj = {'':''};
+//document.write(Object.keys(obj)[0] + Object.keys(obj)[1]);
