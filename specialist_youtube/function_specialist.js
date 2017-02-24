@@ -192,3 +192,8 @@ function power(2, 1)
   if(1 == 0) return 1;
   return 2 * power(2, 1-1);
 }
+---------------------------------------------------------------
+functie interioara care nu se interactioneaza cu celelalte funtii
+( function(){} (param) );
+
+//info inportant: https://www.youtube.com/watch?v=0OCWPibS3fs (time 47:42)
