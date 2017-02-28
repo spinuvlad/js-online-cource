@@ -68,10 +68,10 @@ function func()
 --------------------------- Исключения: атрибуты class и for -----------------------
 слово "class" является специальным в JavaScript и поэтому мы не можем просто написать elem.class, 
 чтобы считать значение атрибута class. Вместо этого следует писать elem.className.
-
+/*
 <input type="text" class="aaa bbb" id="test">
 <input type="submit" onclick="func()">
-
+*/
 function func()
 {
 	var elem = document.getElementById('test');
@@ -145,3 +145,17 @@ function func()
 	var elem = document.getElementById('test');
 	elem.style.cssFloat = 'left';
 }
+
+------------------------------------------ conditia NaN
+function calcW()
+{
+  var inputIn = document.getElementById('input-in-w');
+  var inputOut = document.getElementById('input-out-w');
+  if(!isNaN(inputIn.value))
+    inputOut.value = inputIn.value*inputIn.value;
+  else
+    inputOut.value = 'Enter the valid number'; 
+}
+-------------------------------------------------
+
+//http://theory.phphtml.net/javascript/pages/attrs.html
