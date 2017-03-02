@@ -10,7 +10,7 @@ function func()
 	alert(elem.getAttribute('value'));
 }
 //va alerta "!"
------------------------
+----------------------- setAttribute
 setAttribute - записывает новое значение в атрибут
 А теперь запишем новое значение 'www' в атрибут value:
 function func()
@@ -19,7 +19,7 @@ function func()
 	elem.setAttribute('value', 'www');
 }
 //va inlocui "!" cu "www"
------------------------
+----------------------- removeAttribute
 removeAttribute удаляет атрибут совсем
 function func()
 {
@@ -27,7 +27,7 @@ function func()
 	elem.removeAttribute('value');
 }
 //va sterge complet atributul "value"
------------------------
+----------------------- hasAttribute
 hasAttribute проверяет наличие или отсутствие атрибута у свойства.
 function func()
 {
