@@ -96,24 +96,70 @@ document.write((now-start)/1000 + '<br>');
 11.	Создайте инпут, в который пользователь вводит дату своего рождения в формате '2014-12-31' 
 (с конкретным годом). По потери фокуса выведите под инпутом сколько дней осталось до его дня рождения. 
 Воспользуйтесь методом Date.parse.
-/*
-<input type="text" onmouseout="func()" id="input" placeholder="yyyy-mm-dd">
-<br><span id="out"></span>  
-*/
+<input type="text" onmouseout="func()" id="input" placeholder="yyyy-mm-dd"> 
+<br><span id="out"></span> 
+*/ 
 function func()
 {
-  var intro = document.getElementById('input').value;
-  var out = document.getElementById('out');
-  var introChange = '1970-' + Number(intro.substr(5, 2)-1) + intro.substr(7, 3);
-  var introParse = Date.parse(introChange);
-  var date = new Date();
-  var dateStr = '1970-' + date.getMonth() + '-' + date.getDate();
-  var dateParse = Date.parse(dateStr);
-  var deffMilsec = Math.abs(introParse - dateParse);
-  var deffDay = Math.round(deffMilsec/(1000*60*60*24));
-  out.innerHTML = 'V-au ramas: ' + deffDay + ' de zile';
+var intro = document.getElementById('input').value;
+var out = document.getElementById('out');
+var introChange = '1970-' + Number(intro.substr(5, 2)-1) + intro.substr(7, 3);
+var introParse = Date.parse(introChange);
+var date = new Date();
+var dateStr = '1970-' + date.getMonth() + '-' + date.getDate();
+var dateParse = Date.parse(dateStr);
+if (introParse < dateParse)
+{
+var deffMilsec = Math.abs(introParse - dateParse + Date.parse('1970-12-31T23:25:25'));
+}
+else
+{
+deffMilsec = Math.abs(introParse - dateParse);
+}
+var deffDay = Math.round(deffMilsec/(1000*60*60*24));
+out.innerHTML = 'V-au ramas: ' + deffDay + ' zile';
 }
 //start Time: Date.parse('1970-01-01T02:00:00')
+-----------------------
+12. Измерьте время выполнения скрипта в миллисекундах. 
+var startTime = new Date(); 
+for(var i = 0; i < 999999; i++); 
+var finishTime = new Date(); 
+alert('Время выполнения скрипта составляет: ' + (finishTime - startTime) + ' ms.');
+------------------------
+13.	Напишите метод, которая преобразует секунды в дни, часы, минуты. 
+Например: 10..0 секунд это 3 дня, 23 часа, 46 минут, 25 секунд.
+function changeSec(sec)
+{
+  var day = Math.floor(sec/(60*60*24));
+  var hours = sec % (60*60*24);
+  var minutes = hours % (60*60);
+  var seconds = hours % 60;
+  document.write(sec + ' secunde: ' + day + ' Zile, ' + Math.floor(hours/(60*60)) + ' ore, ' + Math.floor(minutes/60) + ' minute, ' + seconds + ' secunde.' );
+}
+changeSec(86401);
+//86401 secunde: 1 Zile, 0 ore, 0 minute, 1 secunde.
+-----------------------
+14.	Выведите на экран количество секунд, которое осталось до конца дня.
+
+var start = new Date();
+var finish = new Date(2017, 2, 6, 23, 59, 59);
+var milSec = finish.getTime() - start.getTime();	// SAU - var milSec = finish - start;
+var result = milSec/1000;
+document.write(Math.floor(result) + ' secunde.');   
+--- sau ---
+var now = new Date();
+var nextDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+var sec = Math.floor((nextDay - now)/1000);
+document.write('Pana la sfarsitul zilei au ramas: ' + sec + ' de secunde.');
+//Pana la sfarsitul zilei au ramas: 57112 de secunde.
+-----------------------
+15.	Создайте инпут, в который пользователь вводит день недели - например, вторник. 
+По потери фокуса выведите под инпутом сколько дней осталось до ближайшего вторника.
+
+
+
+
 
 Source:playcode.io/7460
 Public:7460.playcode.io
