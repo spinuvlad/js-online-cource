@@ -106,5 +106,101 @@ function func()
 		</div>
 ----------------------------------------------
 4. Создайте таймер обратного отсчета:
+/*
+<div>
+  <p id="down">10</p>
+  <p style="display: none;" id="text">Обратный отсчет завершен.</p>
+  <input type="submit" value="Запустить таймер!" onclick="start()" id="input">
+</div>
+*/
+function start()
+{
+  window.setInterval(func, 500);
+}
 
-//		playcode.io/7729
+function func()
+{
+  var timer = document.getElementById('down');
+  var input = document.getElementById('input');
+  var text = document.getElementById('text'); //straniu, insa lucreaza si fara ceasta declaratie
+    if (timer.innerHTML > 0)
+    {
+      timer.innerHTML = timer.innerHTML - 1;
+    }
+    else
+    {
+      text.style.display = 'block';
+    }
+    input.disabled = true; 
+}
+//		playcode.io/7804
+---------------------------------------------
+5. Создайте простой слайдер:
+// playcode.io/7802  -- varianta proprie (neeficienta)
+
+/*
+<body onload="slider()">
+  <img id="img" src="" alt="" >
+</body>
+*/
+var numImg = 0; 
+function slider()
+{
+  var img = document.getElementById('img');
+  var source = 'http://theory.phphtml.net/exercises/javascript/base/zadachi-na-tajmery-javascript/smiles/';
+  if (numImg > 2)
+  {
+    numImg = 1;
+  }
+  else numImg++;
+  {
+    img.src = source + numImg + '.png';
+    img.alt = 'images' + numImg;
+  }
+  window.setTimeout(slider, 1000);
+}   
+//    playcode.io/7808
+
+----- sau -----
+var numImg = 0; 
+function slider()
+{
+  var img = document.getElementById('img');
+  var source = 'http://theory.phphtml.net/exercises/javascript/base/zadachi-na-tajmery-javascript/smiles/';
+  if (numImg > 2)
+  {
+    numImg = 1;
+  }
+  else numImg++;
+  {
+    img.src = source + numImg + '.png';
+    img.alt = 'images' + numImg;
+  }
+}
+window.setInterval(slider, 1000);
+------------------------------------------------------
+6. Создайте карусель:
+//    playcode.io/7811
+/*
+<div>
+  <img src="http://theory.phphtml.net/exercises/javascript/base/zadachi-na-tajmery-javascript/smiles/1.png" alt="">
+  <img src="http://theory.phphtml.net/exercises/javascript/base/zadachi-na-tajmery-javascript/smiles/2.png" alt="">
+  <img src="http://theory.phphtml.net/exercises/javascript/base/zadachi-na-tajmery-javascript/smiles/3.png" alt="">
+  <input type="submit" onclick="slider(), disInput(this)" id="input" value="Запустить карусель!">
+</div>
+*/
+function slider()
+{
+  var imgs = document.getElementsByTagName('img');
+  var temp = imgs[0].src;
+  imgs[0].src = imgs[1].src;
+  imgs[1].src = imgs[2].src;
+  imgs[2].src = temp;
+  window.setTimeout(slider, 1000); //recursie - functie care se cheama singura pe sine cu un interval de 1000ms
+}
+function disInput(elem)
+{
+  elem.disabled = true;
+}
+-----------------------------------------------------
+7. Создайте карусель:
