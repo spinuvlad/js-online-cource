@@ -120,6 +120,30 @@ var deffDay = Math.round(deffMilsec/(1000*60*60*24));
 out.innerHTML = 'V-au ramas: ' + deffDay + ' zile';
 }
 //start Time: Date.parse('1970-01-01T02:00:00')
+------------- sau ----------------
+/*
+<input type='text' value ='' placeholder = 'Введите дату своего рождения' onblur = 'func(this)'> 
+<p id='task'></p> 
+*/
+function func(elem)
+{ 
+  var date = new Date();
+  var elem1 = document.getElementById('task');
+  var str = elem.value;
+  var str1=date.getFullYear()+'-'+ str.slice(5);
+  var day = Date.parse(str1);
+  var now= date.getTime();
+  var diff =365- Math.round((now-day)/1000/60/60/24);
+  if (diff<365)
+  {
+    elem1.innerHTML = diff;
+  }
+  else 
+  {
+    var diff1 = Math.round((day-now)/1000/60/60/24);
+    elem1.innerHTML = diff1;
+  }
+}
 -----------------------
 12. Измерьте время выполнения скрипта в миллисекундах. 
 var startTime = new Date(); 
