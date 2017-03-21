@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#gallery{
+		width: 860px;
+		margin: 0 auto;
+		text-align: center;
+		
+	}
+	#gallery .photos{
+		position: relative;
+		height: 660px;
+	}
+		#gallery .photos img{
+			width: 100%;
+			opacity: 0;
+			position: absolute;
+			left: 0;
+			transition: 1s;
+		}
+		#gallery .photos img.showed{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+
+<div id="gallery">
+	<div class="photos">
+		<img src="http://lorempixel.com/output/nightlife-q-c-640-480-1.jpg" class="showed" alt="1">
+		<img src="http://lorempixel.com/output/nightlife-q-c-640-480-2.jpg" alt="2">
+		<img src="http://lorempixel.com/output/fashion-q-c-640-480-5.jpg" alt="3">
+		<img src="http://lorempixel.com/output/animals-q-c-640-480-2.jpg" alt="4">
+		<img src="http://lorempixel.com/output/technics-q-c-640-480-9.jpg" alt="5">
+		<img src="http://lorempixel.com/output/food-q-c-640-480-6.jpg" alt="6">
+		<img src="http://lorempixel.com/output/city-q-c-640-480-3.jpg" alt="7">
+		<img src="http://lorempixel.com/output/nature-q-c-640-480-6.jpg" alt="8">
+	</div>
+	<div class="buttons">
+		<input type="button" value="Prev" class="prev">
+		<input type="button" value="Next" class="next">
+	</div>
+</div>
+
+
+<script>
+var prev = document.querySelector('#gallery .buttons .prev');
+var next = document.querySelector('#gallery .buttons .next');
+var images = document.querySelectorAll('#gallery .photos img'); // obtine masiv de imagini
+
+var i = 0;
+
+next.onclick = function(){
+	images[i].className = '';
+	i++;
+	if (i >= images.length)
+	{
+		i = 0;
+	}
+	images[i].className = 'showed';
+}
+
+prev.onclick = function(){
+	images[i].className = '';
+	i--;
+	if (i < 0){
+		i = images.length - 1;
+	}
+	images[i].className = 'showed';
+}
+</script>
+</body>
+</html>

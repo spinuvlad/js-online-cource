@@ -328,3 +328,107 @@ console.log(arr);
 -----------------------------------------------------
 32. Дан элемент #test. Среди всех его родителей найдите ближайшего родителя 
 с классом 'www' и поставьте ему в конец текст '!'.
+/*
+<body> 
+  <div class='www'> 
+    <ol > 
+      <li id='test'>text1</li> 
+      <li>text4</li> 
+      <li >text2</li> 
+      <li>text3</li> 
+    </ol> 
+  </div> 
+</body> 
+*/
+var elem = document.getElementById('test'); 
+var parent; 
+parent = elem.parentElement; 
+while(parent.className !== 'www'){ 
+  parent = parent.parentElement; 
+} 
+parent.innerHTML += '!'; 
+-------------------------------------------------------
+33. Дан элемент инпут. Рядом с ним находится кнопочка "+". 
+По нажатию на эту кнопку под нашим инпутом должен появится еще один пустой инпут.
+/*
+	<div id="parent">
+    <input type="text" id="input">
+    <button id="btn">+</button>
+  </div>
+*/
+var parent = document.getElementById('parent') ;
+var input = document.getElementById('input');
+var btn = document.getElementById('btn');
+var n = 1;
+input.value = n;
+btn.addEventListener('click', func);
+
+function func(){
+  n++;
+  var elem = document.createElement('input');
+  elem.type = "text";
+  elem.value = n;
+  parent.appendChild(elem); 
+}
+//	playcode.io/8672
+-----------------------------------------------------
+34. Даны инпуты. Рядом с каждым из них находится кнопочка "+". 
+По нажатию на эту кнопку под нашим инпутом должен появится клон этого инпута.
+/*
+<div>
+  <div><input type="text"><button>+</button></div>
+  <div><input type="text"><button>+</button></div>
+  <div><input type="text"><button>+</button></div>
+  <div><input type="text"><button>+</button></div>
+</div>
+*/
+var btn = document.getElementsByTagName('button');
+for (var i = 0; i < btn.length; i++){
+  btn[i].addEventListener('click', func);
+}
+
+function func(){
+  var prev = this.previousElementSibling;
+  var parent = this.parentElement;
+  var clone = prev.cloneNode(true);
+  var br = document.createElement('br');
+  parent.append(br);
+  parent.appendChild(clone);
+}
+//	playcode.io/8675
+------------------------------------------------------
+35. Даны инпут. В него вводится число. По потери фокуса сделайте так, чтобы каждая цифра вставилась в новый инпут. 
+Инпутов для цифр изначально не существует, они должны создаться в процессе работы скрипта.
+/*
+<div>
+  <input type="text" id="input" onblur="func()">
+</div>
+*/
+var input = document.getElementById('input');
+var parent = input.parentElement;
+function func(){
+  var num = input.value;
+  var arr = num.split('');
+  for (var i = 0; i < arr.length; i++){
+    var newInput = document.createElement('input');
+    newInput.value = arr[i];
+    parent.appendChild(newInput); 
+  }
+} 
+//	playcode.io/8678 
+-------------------------------------------------------
+36. Дана кнопка. Сделайте так, чтобы по нажатию на эту кнопку, скрывался родитель этой кнопки.
+/*
+<div>
+  <button id="btn">Btn</button>
+</div>
+*/
+var btn = document.getElementById('btn');
+var parent = btn.parentElement;
+btn.addEventListener('click', func);
+
+function func(){
+  parent.style.visibility = 'hidden';
+  btn.style.visibility = 'visible';
+}  
+//	playcode.io/8684
