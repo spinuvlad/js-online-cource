@@ -320,7 +320,7 @@ document.write(prev.innerHTML);
 <p>Два</p>
 */
 var element = document.getElementById('element');
-var prev = element.nextElementSibling;
+var next = element.nextElementSibling;
 document.write(prev.innerHTML);
 //Два
 ----------------------------- parentElement ------------------------------ Родители

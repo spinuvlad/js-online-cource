@@ -143,6 +143,18 @@ function func()
   <img id="img" src="" alt="" >
 </body>
 */
+var num = 1;
+function slider(){
+  var source = 'http://theory.phphtml.net/exercises/javascript/base/zadachi-na-tajmery-javascript/smiles/';
+  var img = document.getElementById('images');
+  img.src = source + num + '.png'
+  num++;
+  if(num > 3){
+    num = 1;
+  }
+  window.setTimeout(func, 1000);  
+}
+-------------------------
 var numImg = 0; 
 function slider()
 {
@@ -263,7 +275,26 @@ function stop()
 </table>
 </body>
 */
-
+function timer(){
+  var date = new Date();
+  var hour = 23 - date.getHours();
+  var min = 59 - date.getMinutes();
+  var sec = 59 - date.getSeconds();
+  var td = document.getElementsByTagName('td');
+  td[0].innerHTML = addZero(hour);
+  td[1].innerHTML = addZero(min);
+  td[2].innerHTML = addZero(sec);
+  window.setTimeout(timer, 1000);
+}
+function addZero(num){
+  if(num < 10){
+    return '0' + num;
+  }
+  else{
+    return num;
+  }
+}
+----------------------------------------
 function timer()
 {
   var hour = document.getElementById('hour');
