@@ -89,3 +89,27 @@ var date = new Date(2015, 23, 4, 12, 59, 59);
 var diff = now - date;
 document.write(diff);
 //7602179818
+
+------------------------------- task ------------------------------
+	Создайте инпут, в который пользователь вводит дату своего рождения в 
+	формате '2014-12-31' (с конкретным годом). По потери фокуса выведите 
+	под инпутом сколько дней осталось до его дня рождения. Воспользуйтесь 
+	методом Date.parse. 
+
+	function func(){
+	var input = document.getElementById('input');
+	var text = document.getElementById('text');
+
+	var str = input.value;
+	var numYear = Number(str.substr(0, 4));
+
+	var date = new Date();
+	var start = Date.parse(str + 'T23:59:59');
+	var nowYear = new Date(date.getFullYear(), 0, 1);
+	var inputYear = new Date(numYear, 0, 1);
+
+	var deffYear = nowYear - inputYear;
+	var deff = date - start - deffYear;
+	
+	text.innerHTML = Math.floor(Math.abs(deff / (1000 * 60 * 60 * 24)));
+}
