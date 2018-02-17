@@ -168,6 +168,28 @@ for (var i = 0; i <= 100; i++){
   document.write(arr[i] + '<br>');
 }
 -------------------------------------
+Заполните массив 10-ю случайными целыми числами. Care nu se repeta:
+
+var arr = [];
+
+while(arr.length < 10) {
+  var random = Math.floor(Math.random() * Math.floor(100));
+  if(arr.indexOf(random) != -1) continue;
+  arr[arr.length] = random;
+
+}
+
+console.log(arr);
+----sau:
+var arr = [];
+
+for (var i = 0; i < 10; i++){
+  var random = Math.floor(Math.random() * Math.floor(100));
+  if(arr.indexOf(random) == -1) arr[arr.length] = random;
+}
+
+console.log(arr);
+-------------------------------------
 13. Дан массив arr. Найдите среднее арифметическое его элементов. 
 Проверьте задачу на массиве с элементами 12, 15, 20, 25, 59, 79.
 var arr = [12, 15, 20, 25, 59, 79];
