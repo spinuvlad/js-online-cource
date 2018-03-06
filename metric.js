@@ -1,3 +1,38 @@
+getComputedStyle(elem); - stilurile elem 
+paddingLeft
+borderTopWidth
+
+elem.clientLeft - left border
+
+window.scrollTo(0, document.body.clientHeight);
+window.scrollTo(0, document.body.scrollHeight);
+
+elem.offsetWidth //300
+
+elem.clientWidth - witdh text + padding - scroll // 260 sau 243
+
+elem.scrollTop //10, 20, 300
+elem.scrollTop += 100; //pas de 100px
+window.pageXOffset; //0
+window.pageYOffset; //0
+window.scrollTo(0, 0); //window.scrollTo(X, Y);
+window.scrollBy(0, 10); //start + 10px
+elem.scrollIntoView(true/false); //true -top; false - bottom
+
+
+elem.scrollWidth // 300px
+elem.scrollHeight // 680px
+elem.style.height = (elem.scrollHeight - paddingTop - paddingBottom) + 'px';
+
+var body = document.documentElement;
+body.scrollHeight //toata inaltimea contentului pe pagina
+body.scrollTop // cu cati pixeli userul sa coborat in jos
+body.clientHeight // dimensiunea inaltimii ferestrie vizibile
+
+if (body.scrollHeight - body.scrollTop == body.clientHeight) {
+		window.scrollTo(0, 100);
+	}
+----------------------------------------------------------------------
 //<div id="elem">Текст</div>
 
 #elem {
@@ -63,7 +98,7 @@ alert('width: ' + style.width); //выведет '200px', но Реальная 
 Есть еще один нюанс: если ширина задана в % - то после работы getComputedStyle мы увидим ее в px.
 ----------------------------------------------------------
 ---------------------------- clientLeft / clientTop ---------------------------------
-classList - ширину левой границы
+clientLeft - ширину левой границы
 clientTop - ширину верхней границы
 
 var elem = document.getElementById('elem');
@@ -124,3 +159,30 @@ elem.style.height = (elem.scrollHeight - paddingTop - paddingBottom) + 'px';
 ------------------------------ offsetLeft / offsetTop -----------------------------
 Свойства offsetLeft и offsetTop содержат в себе позицию в пикселях 
 левого верхнего угла блока относительно его offsetParent.
+
+------------------------------ 	pageXOffset, pageYOffset ---------------------------
+pageXOffset - горизонтальная прокрутка страницы. Фактически это scrollLeft специально для страницы,
+но со scrollLeft для страницы могут возникать некоторые проблемы. 
+window.pageXOffset; //0
+
+pageYOffset - вертикальная прокрутка страницы. Фактически это scrollTop специально для страницы
+window.pageYOffset; //0
+
+----------------------  scrollTo, scrollBy, scrollIntoView. --------------------------
+window.scrollTo(0, 0); //window.scrollTo(X, Y);
+var val = +prompt('На сколько прокрутить страницу?', '');
+if (val >= 0) window.scrollTo(0, val);
+else alert('NaN');
+
+Функция scrollBy позволяет прокрутить страницу по горизонтали и вертикали относительно текущей прокрутки. 
+window.scrollBy(0, 10);
+var val = +prompt('На сколько прокрутить страницу?', '');
+if (!isNaN(val)) window.scrollBy(0, val);
+else alert('NaN');
+
+scrollIntoView позволяет прокрутить страницу так, что бы элемент оказался вверху либо внизу. 
+элемент.scrollIntoView(true/false); //true -top; false - bottom
+
+------------------------------ elemFromPoint-----------------------------
+Метод elemFromPoint возвращает элемент, который находится на указанных координатах относительно окна. 
+document.elemFromPoint(x, y);

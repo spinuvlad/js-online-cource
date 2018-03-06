@@ -176,7 +176,6 @@ while(arr.length < 10) {
   var random = Math.floor(Math.random() * Math.floor(100));
   if(arr.indexOf(random) != -1) continue;
   arr[arr.length] = random;
-
 }
 
 console.log(arr);
