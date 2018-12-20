@@ -9,8 +9,39 @@ alert(obj[1]); //выведет 'пн'
 Ключи не обязательно должны быть числами, они могут быть и строками.
 var obj = {'Коля':200, 'Вася':300, 'Петя':400}; // 'Петя' - ключ
 alert(obj['Вася']); //выведет 300
+-----------------------------------
+let sity = {
+	'Chisinau':'Moldova',
+	'Kiev':'Ucraina',
+	'Moscov':'Russia'
+};
 
+for (key in sity) console.log(sity[key]); //Moldova, Ucraina, Russia
+for (key in sity) console.log(key); 
+console.log(Object.values(sity)); //Moldova, Ucraina, Russia
+console.log(Object.keys(sity)); //Chisinau, Kiev, Moscov
+console.log(Object.getOwnPropertyNames(sity)); //Chisinau, Kiev, Moscov
 
+var findKey = function(obj, value)
+	{
+		var key = null;
+
+		for (var prop in obj)
+		{
+			if (obj.hasOwnProperty(prop))
+			{
+				if (obj[prop] === value)
+				{
+					key = prop;
+				}
+			}
+		}
+
+		return key;
+	};
+
+	console.log(findKey(sity, 'Ucraina')); //Kiev
+-----------------------------------------------
 на такие ключи накладываются ограничения: они не должны начинаться с цифры, 
 не должны иметь символ дефиса или символ пробела внутри:
 var obj = {key1:200, key2:300, key2:400};
